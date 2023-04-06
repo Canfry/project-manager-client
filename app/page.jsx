@@ -14,9 +14,8 @@ const client = createClient({
   useCdn: false,
 });
 
-export default async function Home() {
+export default async function Homepage() {
   const projects = await client.fetch(`*[_type == 'projects']`);
-  console.log(projects);
 
   return (
     <>
