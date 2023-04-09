@@ -1,5 +1,5 @@
 import { SignIn } from '@clerk/nextjs/app-beta';
 
 export default function SignInpage() {
-  return <SignIn path='/signin' redirectUrl='/' />;
+  return <SignIn />;
 }

@@ -1,5 +1,6 @@
 import { ClerkProvider } from '@clerk/nextjs/app-beta';
 import { SignedIn, SignedOut } from '@clerk/nextjs/app-beta';
+import { dark } from '@clerk/themes';
 
 import Header from './components/Header';
 import './globals.css';
@@ -12,13 +13,13 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang='en'>
-        <body>
+        <body className='h-screen flex flex-col'>
           <SignedIn>
             <Header />
           </SignedIn>
-          <main>{children}</main>
+          <main className='grow'>{children}</main>
         </body>
       </html>
     </ClerkProvider>

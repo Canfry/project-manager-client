@@ -16,19 +16,21 @@ const client = createClient({
 
 export default async function Dashboardpage() {
   const projects = await client.fetch(`*[_type == 'projects']`);
-  // const user = await currentUser();
-  // console.log(user);
 
   return (
     <>
-      {projects.map((project) => (
-        <SignedIn>
-          <section key={project._id}>
-            <h1>{project.name}</h1>
-            <p>{project.description}</p>
-          </section>
-        </SignedIn>
-      ))}
+      <main className='w-full h-full'>
+        <div className='max-w-[90%] lg:max-w-[80%] xl:max-w-[70%] h-full m-auto'>
+          {projects.map((project) => (
+            <SignedIn>
+              <section key={project._id}>
+                <h1>{project.name}</h1>
+                <p>{project.description}</p>
+              </section>
+            </SignedIn>
+          ))}
+        </div>
+      </main>
     </>
   );
 }
