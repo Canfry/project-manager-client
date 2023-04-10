@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google';
 import { createClient } from 'next-sanity';
 import { SignedIn } from '@clerk/nextjs/app-beta';
+import Dashboard from '../components/Dashboard';
 
 const inter = Inter({
   weight: ['300', '400', '600', '700'],
@@ -16,21 +17,17 @@ const client = createClient({
 
 export default async function Dashboardpage() {
   const projects = await client.fetch(`*[_type == 'projects']`);
+  const teams = await client.fetch(`*[_type == 'teams']`);
 
   return (
     <>
-      <main className='w-full h-full'>
-        <div className='max-w-[90%] lg:max-w-[80%] xl:max-w-[70%] h-full m-auto'>
-          {projects.map((project) => (
-            <SignedIn>
-              <section key={project._id}>
-                <h1>{project.name}</h1>
-                <p>{project.description}</p>
-              </section>
-            </SignedIn>
-          ))}
-        </div>
-      </main>
+      <SignedIn>
+        <main className='w-full h-full'>
+          <div className='max-w-[90%] lg:max-w-[80%] xl:max-w-[70%] h-full m-auto mt-10'>
+            <Dashboard projects={projects} teams={teams} />
+          </div>
+        </main>
+      </SignedIn>
     </>
   );
 }
