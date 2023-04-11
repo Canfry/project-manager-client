@@ -1,10 +1,12 @@
-import Link from 'next/link';
+import { Link } from 'next/link';
 import { currentUser } from '@clerk/nextjs/app-beta';
 import { UserButton } from '@clerk/nextjs/app-beta';
 import { SignedIn } from '@clerk/nextjs/app-beta';
+// import Nav from './Nav';
 
 export default async function Header() {
   const user = await currentUser();
+
   return (
     <>
       <div className='w-full py-8 shadow-zinc-900 shadow-lg'>
@@ -12,6 +14,7 @@ export default async function Header() {
           <div>
             <h1 className='text-4xl text-success'>Project Manager</h1>
           </div>
+          {/* <Nav /> */}
           <nav>
             <ul className='flex items-center gap-4'>
               <li>
@@ -38,7 +41,7 @@ export default async function Header() {
                 <UserButton />
               </li>
               <li className='ml-4 hidden lg:block'>
-                Welcome {user.firstName} {user.lastName}{' '}
+                Welcome {user.firstName} {user.lastName}
               </li>
             </SignedIn>
           </div>

@@ -1,5 +1,5 @@
 import { ClerkProvider } from '@clerk/nextjs/app-beta';
-import { SignedIn, SignedOut } from '@clerk/nextjs/app-beta';
+import { SignedIn } from '@clerk/nextjs/app-beta';
 import { dark } from '@clerk/themes';
 
 import Header from './components/Header';
