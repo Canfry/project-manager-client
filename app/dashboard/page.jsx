@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_PROJECT_ID,
+  projectId: 'oneonqrw',
   dataset: 'production',
   apiVersion: '2022-03-25',
   useCdn: false,
